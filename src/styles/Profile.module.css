@@ -1,0 +1,180 @@
+/* PROFILE SECTION */
+.profileSection {
+  padding: 20px;
+}
+
+.profileHeader {
+  background: white;
+  padding: 30px 20px;
+  border-radius: 15px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profileAvatar {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #6baf2c 0%, #5a9625 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0 auto 15px;
+}
+
+.profileHeader h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.profileEmail {
+  color: #666;
+  font-size: 14px;
+}
+
+.profileInfoCard {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 15px;
+}
+
+.profileInfoCard h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.label {
+  color: #666;
+  font-size: 14px;
+}
+
+.value {
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.profileActions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.btnEdit {
+  background: #6baf2c;
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btnEdit:hover {
+  background: #5a9625;
+}
+
+.btnLogoutProfile {
+  background: white;
+  color: #d90000;
+  border: 2px solid #d90000;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btnLogoutProfile:hover {
+  background: #d90000;
+  color: white;
+}
+
+.profileStats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.statCard {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.statCard h4 {
+  font-size: 24px;
+  color: #6baf2c;
+  margin-bottom: 5px;
+}
+
+.statCard p {
+  font-size: 12px;
+  color: #666;
+}
+
+/* RESPONSIVE - TABLET */
+@media (min-width: 768px) {
+  .profileSection {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .profileStats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+
+/* RESPONSIVE - DESKTOP */
+@media (min-width: 1024px) {
+  .profile-section {
+    padding: 40px;
+    max-width: 1200px;
+  }
+
+  .profileSection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .profileHeader {
+    grid-column: 1 / -1;
+  }
+
+  .profileInfoCard {
+    grid-row: 2;
+  }
+
+  .profileActions {
+    grid-row: 2;
+  }
+
+  .profileStats {
+    grid-column: 1 / -1;
+  }
+}
