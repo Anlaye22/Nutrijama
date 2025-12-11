@@ -6,6 +6,7 @@ import StartSesionHome from "./StartSesionHome";
 import Login from "./Login";
 import Register from "./Register";
 import { MOCK_USERS } from "../App";
+import { CartProvider } from "../context/CartContext";
 
 const Home = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -128,10 +129,12 @@ const Home = () => {
         </div>
       )}
       {isLoggedIn && currentUser && (
-        <StartSesionHome
-          handleLogout={handleLogout}
-          currentUser={currentUser}
-        />
+        <CartProvider currentUserEmail={currentUser?.email}>
+          <StartSesionHome
+            handleLogout={handleLogout}
+            currentUser={currentUser}
+          />
+        </CartProvider>
       )}
       {showLogin && !isLoggedIn && !currentUser && (
         <Login

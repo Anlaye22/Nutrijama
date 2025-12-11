@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import FoodTruckDetails from "./FoodTruckDetails";
+import ProductList from "./ProductList";
+import ProductDetail from "./ProductDetail";
+import { products } from "./StartSesionHome";
 import { MapPin } from "lucide-react";
 import { MOCK_FOODTRUCKS } from "./StartSesionHome";
 import {
@@ -48,13 +51,48 @@ export default function MapView({ selectedTruck, setSelectedTruck }) {
   const closestTruck = foodTrucksWithCoords[0];
   const routePoints = [USER_LOCATION, [closestTruck.lat, closestTruck.lng]];
   const travelTime = "7 min";
+  const [viewProducts, setViewProducts] = useState(false);
+  const [productDetails, setProductDetails] = useState(false);
+  const [activeProduct, setActiveProduct] = useState(null);
+
   const handleBack = () => {
     setSelectedTruck(null);
   };
+  const handleProducts = () => {
+    setActiveProduct(null);
+    setViewProducts(true);
+  };
+
+  const handleProductsDetail = (p) => {
+    setViewProducts(false);
+    setActiveProduct(p);
+    setProductDetails(true);
+  };
+
   if (selectedTruck) {
+    if (productDetails && activeProduct) {
+      return <ProductDetail product={activeProduct} goBack={handleProducts} />;
+    }
+    if (viewProducts) {
+      return (
+        <ProductList
+          products={products}
+          goToDetail={handleProductsDetail}
+          handleBack={handleBack}
+        />
+      );
+    }
+
     // Si hay un camión seleccionado, muestra los detalles
-    return <FoodTruckDetails truck={selectedTruck} onBack={handleBack} />;
+    return (
+      <FoodTruckDetails
+        truck={selectedTruck}
+        onBack={handleBack}
+        handleProducts={handleProducts}
+      />
+    );
   }
+
   return (
     <div className={stMap.mapSection}>
       <div className={stMap.mapHeader}>

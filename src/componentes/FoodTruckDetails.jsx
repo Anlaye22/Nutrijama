@@ -37,7 +37,7 @@ const USER_LOCATION = [-2.166, -79.916];
  * @param {object} props.truck - Objeto del Food Truck seleccionado.
  * @param {function} props.onBack - Función para volver a la vista del mapa principal.
  */
-export default function FoodTruckDetails({ truck, onBack }) {
+export default function FoodTruckDetails({ truck, onBack, handleProducts }) {
   if (!truck) return null; // No renderizar si no hay truck seleccionado
 
   // Simulación de datos para la ruta y la ubicación del camión
@@ -164,7 +164,9 @@ export default function FoodTruckDetails({ truck, onBack }) {
 
       {/* 4. Botón de Acción */}
       <footer className={stMap.detailsFooter}>
-        <button className={stMap.btnViewMenu}>Ver Menú</button>
+        <button className={stMap.btnViewMenu} onClick={handleProducts}>
+          Ver Menú
+        </button>
       </footer>
     </div>
   );
