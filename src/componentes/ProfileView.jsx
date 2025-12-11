@@ -35,21 +35,6 @@ export default function ProfileView({ currentUser, handleLogout }) {
           Cerrar Sesión
         </button>
       </div>
-
-      <div className={stProfile.profileStats}>
-        <div className={stProfile.statCard}>
-          <h4>0</h4>
-          <p>Pedidos</p>
-        </div>
-        <div className={stProfile.statCard}>
-          <h4>0</h4>
-          <p>Puntos</p>
-        </div>
-        <div className={stProfile.statCard}>
-          <h4>$0</h4>
-          <p>Ahorrado</p>
-        </div>
-      </div>
     </div>
   );
 }

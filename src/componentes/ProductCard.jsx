@@ -1,4 +1,6 @@
+import React from "react";
 import { useCart } from "../context/CartContext";
+import "../styles/Cart.css";
 
 export default function ProductCard({ product, onClick }) {
   const { addToCart } = useCart();

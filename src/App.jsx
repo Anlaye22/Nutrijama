@@ -12,6 +12,22 @@ export const MOCK_USERS = [
     alergias: "gluten",
   },
 ];
+export const HISTORIAL = [
+  {
+    "usuario@test.com": [
+      {
+        id: "pedido-1678886400000",
+        fecha: "2025-12-11T16:19:47.410Z",
+        valorTotal: 25.5,
+        items: [
+          { id: 1, nombre: "Ensalada", qty: 2, price: 10.0 },
+          { id: 3, nombre: "Jugo", qty: 1, price: 5.5 },
+        ],
+      },
+      // ... más pedidos
+    ],
+  },
+];
 function App() {
   return (
     <>
