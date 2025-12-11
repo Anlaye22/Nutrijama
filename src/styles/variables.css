@@ -1,0 +1,53 @@
+:root {
+  /* Colores principales */
+  --color-primary-red: #d90000;
+  --color-primary-green: #6baf2c;
+  --color-primary-green-dark: #5a9625;
+
+  /* Colores de fondo */
+  --color-bg-white: #ffffff;
+  --color-bg-light: #f8f8f8;
+  --color-bg-lighter: #f8f9fa;
+
+  /* Colores de texto */
+  --color-text-dark: #333333;
+  --color-text-gray: #666666;
+
+  /* Sombras */
+  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-medium: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-large: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --shadow-button: 0 4px 12px rgba(107, 175, 44, 0.3);
+  --shadow-button-hover: 0 6px 16px rgba(107, 175, 44, 0.4);
+
+  /* Espaciado */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 60px;
+
+  /* Border radius */
+  --radius-sm: 10px;
+  --radius-md: 20px;
+  --radius-lg: 30px;
+
+  /* Breakpoints */
+  --breakpoint-tablet: 768px;
+  --breakpoint-desktop: 1024px;
+  --breakpoint-large: 1440px;
+
+  /* Tipografía */
+  --font-family: "Arial", sans-serif;
+  --font-size-base: 16px;
+  --font-size-sm: 18px;
+  --font-size-md: 22px;
+  --font-size-lg: 24px;
+  --font-size-xl: 32px;
+  --font-size-2xl: 36px;
+
+  /* Transiciones */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
