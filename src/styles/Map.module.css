@@ -1,0 +1,418 @@
+/* MAP SECTION */
+
+.mapSection {
+  padding: 20px;
+}
+
+.mapHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.mapheader h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.locationBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f0f0f0;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+.mapContainerReal {
+  /* Establece las dimensiones para el contenedor de react-leaflet */
+  position: relative;
+  height: 300px;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+/* ESTILO ESPECÍFICO PARA EL MAPA DE LEAFLET */
+.mapContainerLeaflet {
+  height: 100%;
+  width: 100%;
+}
+
+.timeBadgeOverlay {
+  position: absolute;
+  /* El z-index es crucial para que se muestre encima del mapa */
+  z-index: 1000;
+  background: white;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translate(
+    -50%,
+    -50%
+  ); /* Centrar el badge en el punto (top, left) */
+}
+
+.currentLocationPath {
+  position: absolute;
+  /* Posiciona el inicio de la ruta donde está el caminante en la imagen */
+  top: 55%;
+  left: 30%;
+  width: 50%; /* Controla el ancho de la ruta simulada */
+  height: 40%; /* Controla la altura de la ruta simulada */
+}
+
+/* La línea de la ruta (path) */
+.routeLine {
+  position: absolute;
+  /* Simula la forma de la ruta (una línea horizontal y una vertical) */
+  width: 100%;
+  height: 100%;
+
+  /* Usamos un SVG como fondo o un truco con ::after / border */
+  background: none;
+  border-left: 4px solid #6baf2c; /* Línea vertical simulada */
+  border-bottom: 4px solid #6baf2c; /* Línea horizontal simulada */
+  border-radius: 0 0 0 10px; /* Esquina redondeada */
+
+  /* Animación punteada (opcional, para darle vida) */
+  /* background-image: linear-gradient(to right, #6baf2c 50%, transparent 50%);
+  background-size: 10px 4px; */
+
+  /* Posiciona la línea para que termine en el destino (pin de food truck) */
+  top: 0;
+  left: 0;
+  /* La ruta va desde el caminante hasta el pin superior (simulado en el JSX) */
+
+  /* Para la forma de L */
+  clip-path: polygon(0 0, 4px 0, 4px 50%, 100% 50%, 100% 54%, 4px 54%, 0 54%);
+}
+
+/* El círculo del caminante (Tu ubicación actual) */
+.currentLocationPin {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: #6baf2c; /* Fondo verde */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px rgba(107, 175, 44, 0.4); /* El anillo exterior */
+
+  /* Posiciona el caminante al final de la ruta (esquina inferior derecha simulada) */
+  bottom: 0;
+  right: 0;
+  transform: translate(
+    50%,
+    50%
+  ); /* Ajuste para centrar correctamente en el punto final */
+  z-index: 10;
+}
+
+.walkerIcon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Indicador de Tiempo ("5 mins") */
+.timeBadge {
+  position: absolute;
+  top: 70%;
+  left: 20%;
+  background: white;
+  color: #333;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-50%);
+}
+
+/* ------------------------------------------------------------------- */
+/* MARCACIONES EXISTENTES (Ajuste el pin para que sea verde como la imagen) */
+/* ------------------------------------------------------------------- */
+
+.markerPin {
+  width: 30px;
+  height: 30px;
+  background: #6baf2c; /* CAMBIADO a verde, como en la imagen */
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.truckMarker {
+  position: absolute;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.truckMarker:hover {
+  transform: scale(1.2);
+}
+
+.markerPin {
+  width: 30px;
+  height: 30px;
+  background: #d90000;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(-45deg);
+  border: 3px solid white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.trucksList {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.trucksList h3 {
+  font-size: 18px;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.truckCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.truckCard:hover {
+  background: #f0f0f0;
+}
+
+.truckCard.selected {
+  border-color: #6baf2c;
+  background: #f0f9e8;
+}
+
+.truckInfo h4 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.specialty {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.truckMeta {
+  display: flex;
+  gap: 15px;
+  font-size: 13px;
+}
+
+.distance,
+.rating {
+  color: #666;
+}
+
+.btnView {
+  background: #6baf2c;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+.btnView:hover {
+  background: #5a9625;
+}
+
+.detailsContainer {
+  padding: 0;
+  min-height: 100vh;
+  background-color: #f7f7f7; /* Fondo gris claro */
+}
+
+.detailsHeader {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.backButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  color: #333;
+  padding: 5px 10px 5px 0;
+}
+
+.truckTitle {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* --- MAPA DE DETALLES --- */
+
+.detailsMapWrapper {
+  /* Aquí va el mapa */
+  padding: 20px;
+  padding-bottom: 0;
+}
+
+/* Reutilizamos estas clases de Leaflet, solo asegurando la altura */
+.mapContainerLeaflet {
+  height: 250px; /* Altura del mapa dentro de los detalles */
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* --- TARJETA DE INFORMACIÓN --- */
+
+.infoCard {
+  background: #ffffff;
+  border: 2px solid #b3e5fc; /* Borde azul claro */
+  border-radius: 10px;
+  margin: 20px;
+  margin-top: -10px; /* Superponer ligeramente al mapa */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.infoSection h4 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.metaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 5px;
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.statusOpen,
+.statusClosed {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.statusOpen {
+  background-color: #6baf2c; /* Verde */
+}
+
+.statusClosed {
+  background-color: #d90000; /* Rojo/Gris */
+}
+
+.divider {
+  border: none;
+  border-top: 1px dotted #ccc; /* Línea punteada */
+  margin: 15px 0;
+}
+
+.detailText {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.iconSmall {
+  margin-top: 2px;
+  color: #6baf2c;
+}
+
+/* --- FOOTER Y BOTÓN --- */
+.detailsFooter {
+  padding: 0 20px 30px;
+}
+
+.btnViewMenu {
+  width: 100%;
+  background: #6baf2c;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* RESPONSIVE - TABLET */
+@media (min-width: 768px) {
+  .mapSection {
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .mapContainer {
+    height: 400px;
+  }
+
+  .trucksList {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .trucksList h3 {
+    grid-column: 1 / -1;
+  }
+}
+
+/* RESPONSIVE - DESKTOP */
+@media (min-width: 1024px) {
+  .mapSection {
+    padding: 40px;
+    max-width: 1200px;
+  }
+
+  .mapContainer {
+    height: 500px;
+  }
+
+  .trucksList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}

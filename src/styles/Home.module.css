@@ -24,6 +24,21 @@
   color: var(--color-primary-red);
 }
 
+.btnLogout {
+  background-color: #dc3545;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btnLogout:hover {
+  background-color: #c82333;
+}
+
 /* ============================================
    MAIN CONTENT
    ============================================ */
