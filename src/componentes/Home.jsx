@@ -5,8 +5,8 @@ import logoLarge from "/pwa-512x512.png";
 import StartSesionHome from "./StartSesionHome";
 import Login from "./Login";
 import Register from "./Register";
-import { MOCK_USERS } from "../App";
 import { CartProvider } from "../context/CartContext";
+import { addUser, getUsers } from "../context/usersStorage";
 
 const Home = () => {
   const [showLogin, setShowLogin] = useState(false);
@@ -44,15 +44,14 @@ const Home = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(MOCK_USERS);
-    const user = MOCK_USERS.find(
+    const users = getUsers();
+    const user = users.find(
       (u) => u.email == loginEmail && u.password == loginPassword
     );
 
     if (user) {
       setCurrentUser(user);
       setIsLoggedIn(true);
-      alert(`¡Bienvenido ${user.nombre}!`);
     } else {
       alert("Credenciales incorrectas");
     }
@@ -66,6 +65,18 @@ const Home = () => {
       return;
     }
 
+    if (!regNombre && !regAlergias && !regEdad && !regEmail && !regPassword) {
+      alert("Por favor, completa todos los campos requeridos.");
+      return;
+    }
+
+    const users = getUsers();
+    const exists = users.some((u) => u.email === regEmail);
+    if (exists) {
+      alert("El correo ya está registrado");
+      return;
+    }
+
     const newUser = {
       nombre: regNombre,
       edad: parseInt(regEdad),
@@ -75,10 +86,7 @@ const Home = () => {
       password: regPassword,
     };
 
-    console.log(newUser);
-    console.log(MOCK_USERS);
-
-    MOCK_USERS.push(newUser);
+    addUser(newUser);
     alert(`¡Cuenta creada exitosamente, ${newUser.nombre}!`);
 
     // Limpiar formulario y volver al inicio
@@ -106,19 +114,20 @@ const Home = () => {
       {!showLogin && !showRegister && (
         <div className={styles.homeContainer}>
           <header className={styles.header}>
-            <div className={styles.logoHeader}>NutriJama</div>
+            <div className={styles.logoHeader1}>Nutri</div>
+            <div className={styles.logoHeader2}>Truck</div>
           </header>
           <main className={styles.mainContent}>
             <div className={styles.contentWrapper}>
               <div className={styles.logoLargeContainer}>
                 <img
                   src={logoLarge}
-                  alt="Logo NutriJAMA Principal"
+                  alt="Logo NutriTruck Principal"
                   className={styles.logoLargeImage}
                 />
               </div>
               <h1 className={styles.tagline}>
-                tu día con comida que sí te cuida.
+                Tu día con comida que sí te cuida.
               </h1>
 
               <button className={styles.btnLogin} onClick={handleLoginClick}>

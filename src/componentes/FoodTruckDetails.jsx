@@ -53,6 +53,7 @@ export default function FoodTruckDetails({ truck, onBack, handleProducts }) {
     open: true,
     closeTime: "18:00",
     deliveryAddress:
+      truck.ubicacion ||
       "Frente al edificio 1 del Omnihospital, cerca de la famcia Cruz Azul",
     paymentMethods: "Tarjeta, efectivo, código QR",
   };

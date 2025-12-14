@@ -18,9 +18,19 @@
   align-items: center;
 }
 
-.logoHeader {
+.logoHeader1 {
+  font-family: "Modak", system-ui;
+  font-weight: 800;
+  font-style: normal;
   font-size: var(--font-size-lg);
-  font-weight: bold;
+  color: green;
+}
+
+.logoHeader2 {
+  font-family: "Modak", system-ui;
+  font-weight: 800;
+  font-style: normal;
+  font-size: var(--font-size-lg);
   color: var(--color-primary-red);
 }
 
@@ -63,15 +73,13 @@
    LOGO GRANDE
    ============================================ */
 .logoLargeContainer {
-  width: 100%;
-  max-width: 280px;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: var(--color-bg-light);
   border-radius: var(--radius-md);
-  padding: var(--spacing-md);
+  padding: 20px;
   box-shadow: var(--shadow-medium);
   transition: transform var(--transition-normal);
 }
@@ -90,11 +98,11 @@
    TAGLINE
    ============================================ */
 .tagline {
+  font-family: "Nerko One", cursive;
+  font-weight: 800;
+  font-style: normal;
   font-size: var(--font-size-md);
-  font-weight: 400;
-  color: var(--color-text-dark);
   text-align: center;
-  line-height: 1.4;
   margin: 0;
   padding: 0 var(--spacing-md);
 }
@@ -183,7 +191,7 @@
 
   .logoLargeContainer {
     max-width: 400px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: var(--shadow-large);
   }
 

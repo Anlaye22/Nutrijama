@@ -9,6 +9,10 @@ export default function Cart({ goHome }) {
   const [showPago, setShowPago] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const handleProcess = () => {
+    if (subtotal === 0) {
+      alert("El carrito está vacío. Agrega productos antes de proceder.");
+      return;
+    }
     setShowCart(false);
     setShowCheckout(true);
   };

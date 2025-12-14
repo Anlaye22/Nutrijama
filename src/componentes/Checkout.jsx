@@ -21,7 +21,6 @@ export default function Checkout({ goSuccess, goBack }) {
             <button onClick={goBack} className={stLogin.btnBack}>
               ← Volver
             </button>
-            <h2>Verificar</h2>
             <div
               className="payment-select-container"
               style={{ margin: "15px 0" }}
@@ -68,14 +67,17 @@ export default function Checkout({ goSuccess, goBack }) {
                 </small>
               </div>
             )}
-            <div className="coupon-section">
+            <div>
               <input
                 type="text"
+                className="inputField"
                 value={couponInput}
                 onChange={(e) => setCouponInput(e.target.value)}
                 placeholder="Código de Descuento"
               />
-              <button onClick={handleApplyCoupon}>Aplicar</button>
+              <button className="apply-btn" onClick={handleApplyCoupon}>
+                Aplicar
+              </button>
             </div>
             <div className="summary">
               <p>Subtotal: ${subtotal.toFixed(2)}</p>
