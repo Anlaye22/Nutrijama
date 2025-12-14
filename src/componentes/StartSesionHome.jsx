@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import stSesion from "../styles/Sesion.module.css";
+import styles from "../styles/Home.module.css";
 import OrdersHistoryView from "./OrdersHistoryView";
 import MapView from "./MapView";
 import ProfileView from "./ProfileView";
@@ -54,7 +55,7 @@ export const MOCK_FOODTRUCKS = [
     id: 1,
     name: "Healthy Bites",
     distance: "0.3 km",
-    specialty: "Opciones diabéticas",
+    ubicacion: "Frente al Omnihospital",
     rating: 4.8,
     lat: -2.1894,
     lng: -79.8875,
@@ -64,7 +65,7 @@ export const MOCK_FOODTRUCKS = [
     id: 2,
     name: "Green Heart",
     distance: "0.5 km",
-    specialty: "Menú hipertensos",
+    ubicacion: "Cerca de la farmacia Cruz Azul",
     rating: 4.6,
     lat: -2.1904,
     lng: -79.8865,
@@ -74,7 +75,7 @@ export const MOCK_FOODTRUCKS = [
     id: 3,
     name: "Fresh & Fit",
     distance: "0.8 km",
-    specialty: "Sin gluten",
+    ubicacion: "Junto al parque central",
     rating: 4.9,
     lat: -2.1914,
     lng: -79.8855,
@@ -84,7 +85,7 @@ export const MOCK_FOODTRUCKS = [
     id: 4,
     name: "Nutri Express",
     distance: "1.2 km",
-    specialty: "Comida balanceada",
+    ubicacion: "Al lado del gimnasio FitLife",
     rating: 4.5,
     lat: -2.1924,
     lng: -79.8845,
@@ -128,7 +129,8 @@ export default function StartSesionHome({ handleLogout, currentUser }) {
     <div className={stSesion.dashboardContainer}>
       {/* Header (solo visible en móvil) */}
       <header className={stSesion.dashboardHeader}>
-        <div className={stSesion.logoHeader}>NutriJama</div>
+        <div className={styles.logoHeader1}>Nutri</div>
+        <div className={styles.logoHeader2}>Truck</div>
       </header>
 
       {/* Contenido principal */}

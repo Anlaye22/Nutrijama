@@ -1,1 +1,1 @@
-if('serviceWorker' in navigator) navigator.serviceWorker.register('/Nutrijama/dev-sw.js?dev-sw', { scope: '/Nutrijama/', type: 'classic' })
+if('serviceWorker' in navigator) navigator.serviceWorker.register('/NutriTruck/dev-sw.js?dev-sw', { scope: '/NutriTruck/', type: 'classic' })

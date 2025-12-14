@@ -15,7 +15,8 @@ export default function Login({
   return (
     <div className={styles.homeContainer}>
       <header className={styles.header}>
-        <div className={styles.logoHeader}>NutriJama</div>
+        <div className={styles.logoHeader1}>Nutri</div>
+        <div className={styles.logoHeader2}>Truck</div>
       </header>
       <main className={styles.mainContent}>
         <div className={stLogin.formWrapper}>

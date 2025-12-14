@@ -1,6 +1,8 @@
 import React from "react";
+import { useEffect } from "react";
 import "./styles/globals.css";
 import Home from "./componentes/Home";
+import { getUsers, saveUsers } from "./context/usersStorage";
 
 export const MOCK_USERS = [
   {
@@ -29,6 +31,12 @@ export const HISTORIAL = [
   },
 ];
 function App() {
+  useEffect(() => {
+    const users = getUsers();
+    if (users.length === 0) {
+      saveUsers(MOCK_USERS);
+    }
+  }, []);
   return (
     <>
       <Home />

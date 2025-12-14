@@ -54,7 +54,7 @@ export default function OrdersHistoryView() {
   }
 
   return (
-    <div>
+    <div style={{ padding: "15px" }}>
       <h2>Historial de Pedidos</h2>
       {orders.map((order) => {
         const { status, isDelivered } = getOrderStatus(order.fecha);
@@ -98,11 +98,13 @@ export default function OrdersHistoryView() {
               Fecha: {new Date(order.fecha).toLocaleDateString()} -{" "}
               {new Date(order.fecha).toLocaleTimeString()}
             </p>
-            <p>Valor Total: **${order.valorTotal.toFixed(2)}**</p>
+            <p>
+              Valor Total: <strong>${order.valorTotal.toFixed(2)}</strong>
+            </p>
 
             {/* Lista de Ítems (Opcional: puedes envolver esto en un colapsable) */}
             <h4 style={{ marginTop: "10px" }}>Detalles:</h4>
-            <ul>
+            <ul style={{ padding: "0 15px" }}>
               {order.items.map((item) => (
                 <li key={item.id}>
                   {item.qty}x {item.name} (${item.price.toFixed(2)} c/u)

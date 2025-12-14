@@ -58,6 +58,12 @@ export default function MapView({ selectedTruck, setSelectedTruck }) {
   const handleBack = () => {
     setSelectedTruck(null);
   };
+
+  const handleFoodTruck = () => {
+    setViewProducts(false);
+    setProductDetails(false);
+    setActiveProduct(null);
+  };
   const handleProducts = () => {
     setActiveProduct(null);
     setViewProducts(true);
@@ -78,7 +84,7 @@ export default function MapView({ selectedTruck, setSelectedTruck }) {
         <ProductList
           products={products}
           goToDetail={handleProductsDetail}
-          handleBack={handleBack}
+          handleBack={handleFoodTruck}
         />
       );
     }
@@ -163,7 +169,7 @@ export default function MapView({ selectedTruck, setSelectedTruck }) {
       {/* Lista de food trucks */}
       <div className={stMap.truckList}>
         <h3>Disponibles ahora</h3>
-        {MOCK_FOODTRUCKS.map((truck) => (
+        {foodTrucksWithCoords.map((truck) => (
           <div
             key={truck.id}
             className={`${stMap.truckCard} ${
