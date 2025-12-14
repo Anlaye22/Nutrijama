@@ -9,6 +9,7 @@ export default function Checkout({ goSuccess, goBack }) {
   const handleApplyCoupon = () => {
     if (applyCoupon(couponInput.toUpperCase())) {
       alert("Cupón aplicado con éxito!");
+      setCouponInput("");
     } else {
       alert("Cupón inválido o expirado.");
     }
@@ -62,7 +63,7 @@ export default function Checkout({ goSuccess, goBack }) {
                   <strong>Pago en Efectivo</strong>
                 </p>
                 <small>
-                  Pagarás ${subtotal.toFixed(2)} al momento de retirar tu
+                  Pagarás ${finalTotal.toFixed(2)} al momento de retirar tu
                   pedido.
                 </small>
               </div>

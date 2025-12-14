@@ -13,8 +13,7 @@ export const products = [
     id: 1,
     name: "Tazón de pollo al curry",
     price: 2.99,
-    image:
-      "https://images.pexels.com/photos/4106483/pexels-photo-4106483.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "products/curry.webp",
     description:
       "Plato alto en proteína con pollo, arroz integral y vegetales. Ideal para un almuerzo balanceado.",
     stock: 20,
@@ -23,8 +22,7 @@ export const products = [
     id: 2,
     name: "Burritos de frijoles con queso",
     price: 3.5,
-    image:
-      "https://images.pexels.com/photos/4958642/pexels-photo-4958642.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "products/burritos.webp",
     description:
       "Burritos vegetarianos con frijoles, queso y vegetales frescos. Fuente de fibra y energía.",
     stock: 20,
@@ -33,8 +31,7 @@ export const products = [
     id: 3,
     name: "Torta de frijoles y aguacate",
     price: 2.75,
-    image:
-      "https://images.pexels.com/photos/3731474/pexels-photo-3731474.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "products/torta-frijoles.webp",
     description:
       "Sánduche con frijoles, aguacate y pan integral. Perfecto para media mañana.",
     stock: 20,
@@ -43,8 +40,7 @@ export const products = [
     id: 4,
     name: "Bebida kéfir",
     price: 0.99,
-    image:
-      "https://images.pexels.com/photos/5946082/pexels-photo-5946082.jpeg?auto=compress&cs=tinysrgb&w=800",
+    image: "products/bebida-de-kafir.jpg",
     description:
       "Bebida fermentada con probióticos, ideal para acompañar tu bowl y cuidar tu microbiota.",
     stock: 20,

@@ -69,7 +69,9 @@ export const CartProvider = ({ children, currentUserEmail }) => {
   };
 
   const [appliedCoupon, setAppliedCoupon] = useState(null);
-  const subtotal = cart.reduce((acc, p) => acc + p.price * p.qty, 0);
+  const subtotal = useMemo(() => {
+    return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  }, [cart]);
 
   const getDiscountRate = (couponCode) => {
     // Lógica de cupones (Debería ser más robusta, ej. verificar si ya usó PRIMERA50)
@@ -115,10 +117,12 @@ export const CartProvider = ({ children, currentUserEmail }) => {
       return;
     }
 
+    const totalAtPayment = finalTotal;
+
     const newOrder = {
       id: `pedido-${Date.now()}`,
       fecha: new Date().toISOString(),
-      valorTotal: subtotal,
+      valorTotal: totalAtPayment,
       items: cart, // Guarda la lista actual del carrito
     };
 
@@ -131,6 +135,7 @@ export const CartProvider = ({ children, currentUserEmail }) => {
     allOrders[currentUserEmail].unshift(newOrder);
     saveLocalOrders(allOrders);
     setCart([]);
+    setAppliedCoupon(null);
 
     return newOrder;
   };

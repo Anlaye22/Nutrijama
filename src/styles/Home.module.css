@@ -20,7 +20,7 @@
 
 .logoHeader1 {
   font-family: "Modak", system-ui;
-  font-weight: 800;
+  font-weight: 400;
   font-style: normal;
   font-size: var(--font-size-lg);
   color: green;
@@ -28,7 +28,7 @@
 
 .logoHeader2 {
   font-family: "Modak", system-ui;
-  font-weight: 800;
+  font-weight: 400;
   font-style: normal;
   font-size: var(--font-size-lg);
   color: var(--color-primary-red);
